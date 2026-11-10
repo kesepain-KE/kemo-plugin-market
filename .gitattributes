@@ -1,0 +1,38 @@
+# 统一行尾，避免 Windows 上的 core.autocrlf=true 把脚本写成 CRLF 再提交上去。
+#
+# 教训：install.sh 曾以 CRLF 入库，在 Linux 上执行直接报
+#   $'\r': command not found
+# 因为首行 #!/usr/bin/env bash 后面跟着 \r，bash 认不出解释器与 set 选项。
+# 服务端脚本必须是 LF。
+
+# 默认为文本自动处理，但二进制文件不要碰
+* text=auto
+
+# 所有 shell 脚本强制 LF
+*.sh text eol=lf
+*.bash text eol=lf
+*.zsh text eol=lf
+
+# Python 与配置用 LF，保持跨平台一致
+*.py text eol=lf
+*.pyi text eol=lf
+*.toml text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.cfg text eol=lf
+*.ini text eol=lf
+
+# Windows 批处理保留 CRLF
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# 二进制或生成物，不做行尾转换
+*.zip binary
+*.tar.gz binary
+*.png binary
+*.jpg binary
+*.ico binary
