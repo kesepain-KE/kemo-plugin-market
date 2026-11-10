@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Editor / manual backups
+*.bak
+*.bak.*
+*.orig
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 市场运行时内容：索引由 build 生成，插件包是二进制产物，都不入库
+/index.json
+/index.json.tmp
+/packages/*.zip
+/packages/*.tmp
+
+# 本地开发临时目录（永不发布）
+/开发临时目录/
+/开发文档/

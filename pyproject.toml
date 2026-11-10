@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kemo-plugin-market"
+dynamic = ["version"]
+description = "Kemo 高级插件市场的索引生成与静态发布服务"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "kesepain" }]
+keywords = ["kemo", "plugin", "market", "gateway"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "PyYAML>=6.0",
+    "packaging>=23.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+kemo-plugin-market = "kemo_plugin_market.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/kesepain-KE/kemo-plugin-market"
+Issues = "https://github.com/kesepain-KE/kemo-plugin-market/issues"
+
+[tool.setuptools]
+packages = ["kemo_plugin_market"]
+
+[tool.setuptools.dynamic]
+version = { attr = "kemo_plugin_market.__version__" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
