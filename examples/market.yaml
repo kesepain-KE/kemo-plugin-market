@@ -1,0 +1,24 @@
+# Kemo 高级插件市场的发布配置。
+# 放在市场内容根（index.json 所在目录），由 `kemo-plugin-market build` 读取。
+#
+# 这里只描述"市场怎么发布"，不重复声明任何插件的字段：
+# 插件的 id / name / version / summary / author / category 一律从
+# packages/*.zip 内的 plugin.yaml 读取，避免同一份信息存两处而漂移。
+
+# 必须能被网关直接访问的站点根地址，不含结尾斜杠。
+# 索引里每个包的 url 会拼成 <base_url>/packages/<文件名>.zip。
+base_url: https://plugin-gateway.kesepain.com
+
+# 插件包所在目录，相对本文件所在目录。
+packages_dir: packages
+
+# 可选：按插件 id 覆盖或补充清单里没有的市场元数据。
+# 未列出的插件全部走清单字段与默认推断。
+#
+# overrides:
+#   some_plugin:
+#     category: model_account        # model_account / cli_provider / provider_extension
+#     capabilities: [llm, tools]     # 市场页标签，仅用于展示与搜索
+#     summary: 覆盖清单里的说明
+#     author: 覆盖清单里的作者
+#     compatibility: ">=2.0.0,<3.0.0"
